@@ -1,3 +1,7 @@
+V0.1.0001E
+Added Vector2 and Vector3 classes
+Added math functions to both Vector classes
+
 V0.1.0001R
 Changed Button to RectButton
 Added EllipseButton class
