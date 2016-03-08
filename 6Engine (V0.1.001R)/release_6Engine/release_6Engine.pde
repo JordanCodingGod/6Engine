@@ -7,7 +7,9 @@ Developed independently by Jordan Doose
 Supported by Daniel Ellingston
 
 Version Changelog:
-Nothing changed from V0.0.0002E
+Changed Button to RectButton
+Added EllipseButton class
+Added mouse checking to EllipseButton
 */
 
 class Shape
@@ -155,21 +157,56 @@ class Ellipse extends Shape
   }
 }
 
-class Button extends Rectangle
+class RectButton extends Rectangle
 {
-  Button(int x, int y, int w, int h)
+  RectButton(int x, int y, int w, int h)
   {
     super(x, y, w, h);
   }
   
-  Button(int x, int y, int w, int h, color c)
+  RectButton(int x, int y, int w, int h, color c)
   {
     super(x, y, w, h, c);
   }
   
-  Button(int x, int y, int w, int h, PImage i)
+  RectButton(int x, int y, int w, int h, PImage i)
   {
     super(x, y, w, h, i);
+  }
+  
+  void draw()
+  {
+    super.draw();
+  }
+  
+  boolean checkPos(int mX, int mY, boolean mC)
+  {
+    if(mC)
+    {
+      if(mX > X && mX < X + W && mY > Y && mY < Y + H)
+      {
+        return true;
+      }
+    }
+    return false;
+  }
+  
+  boolean checkMouse()
+  {
+    return checkPos(mouseX, mouseY, mousePressed);
+  }
+}
+
+class EllipseButton extends Ellipse
+{
+  EllipseButton(int x, int y, int w, int h)
+  {
+    super(x, y, w, h);
+  }
+  
+  EllipseButton(int x, int y, int w, int h, color c)
+  {
+    super(x, y, w, h, c);
   }
   
   void draw()

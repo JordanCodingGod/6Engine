@@ -1,5 +1,7 @@
 V0.1.0001R
-ADD IN LATER
+Changed Button to RectButton
+Added EllipseButton class
+Added mouse checking to EllipseButton
 
 V0.0.0002E
 Added Ellipse class
