@@ -1,0 +1,13 @@
+V0.1.0001R
+ADD IN LATER
+
+V0.0.0002E
+Added Ellipse class
+Changed checkPress() to checkPos() for more generic position checking in Button
+Changed WIDTH and HEIGHT in Shape class to W and H for easier use
+Added get and set functions to Shape class
+
+V0.0.0001E
+Added Shape framework class
+Added Rectangle and Button classes
+Added mouse checking to Button class
