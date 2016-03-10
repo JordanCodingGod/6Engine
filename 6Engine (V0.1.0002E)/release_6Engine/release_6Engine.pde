@@ -1,14 +1,13 @@
 /*
-6Engine V0.1.0001E
-Release Build 1
-Released 3/8/2016
+6Engine V0.1.0002E
+Experimental Build 1.2
+Released 3/10/2016
 
 Developed independently by Jordan Doose
 Supported by Daniel Ellingston
 
 Version Changelog:
-Added Vector2 and Vector3 classes
-Added math functions to Vector classes
+Added Image class to store and display image files better
 */
 
 // CODE BEGINS BELOW
@@ -239,6 +238,148 @@ class EllipseButton extends Ellipse
     return checkPos(mouseX, mouseY, mousePressed);
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+/*
+
+    ___    ______________  _____________________________    _____ __________________________  _   __
+   /   |  / ____/_  __/ / / / ____/_  __/  _/ ____/ ___/   / ___// ____/ ____/_  __/  _/ __ \/ | / /
+  / /| | / __/   / / / /_/ / __/   / /  / // /    \__ \    \__ \/ __/ / /     / /  / // / / /  |/ / 
+ / ___ |/ /___  / / / __  / /___  / / _/ // /___ ___/ /   ___/ / /___/ /___  / / _/ // /_/ / /|  /  
+/_/  |_/_____/ /_/ /_/ /_/_____/ /_/ /___/\____//____/   /____/_____/\____/ /_/ /___/\____/_/ |_/   
+                                                                                                    
+
+*/
+
+
+// Custom image class
+class Image
+{
+  int X;
+  int Y;
+  int W = 0;
+  int H = 0;
+  PImage img;
+  
+  boolean custDim = false;;
+  
+  
+  Image()
+  {
+    X = 0;
+    Y = 0;
+    img = null;
+  }
+  
+  Image(int x, int y, PImage i)
+  {
+    X = x;
+    Y = y;
+    img = i;
+  }
+  
+  Image(int x, int y, int w, int h, PImage i)
+  {
+    X = x;
+    Y = y;
+    W = w;
+    H = h;
+    img = i;
+    custDim = true;
+  }
+  
+  void draw()
+  {
+    if(!custDim)
+    {
+      image(img, X, Y);
+    }
+    else if(custDim)
+    {
+      image(img, X, Y, W, H);
+    }
+  }
+  
+  int getX()
+  {
+    return X;
+  }
+  
+  int getY()
+  {
+    return Y;
+  }
+  
+  int getW()
+  {
+    return W;
+  }
+  
+  int getH()
+  {
+    return H;
+  }
+  
+  PImage getImage()
+  {
+    return img;
+  }
+  
+  void setX(int x)
+  {
+    X = x;
+  }
+  
+  void setY(int y)
+  {
+    Y = y;
+  }
+  
+  void setW(int w)
+  {
+    W = w;
+  }
+  
+  void setH(int h)
+  {
+    H = h;
+  }
+  
+  void setImage(PImage i)
+  {
+    img = i;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+/*
+
+    __  ______  ________  __   _____ __________________________  _   __
+   /  |/  /   |/_  __/ / / /  / ___// ____/ ____/_  __/  _/ __ \/ | / /
+  / /|_/ / /| | / / / /_/ /   \__ \/ __/ / /     / /  / // / / /  |/ / 
+ / /  / / ___ |/ / / __  /   ___/ / /___/ /___  / / _/ // /_/ / /|  /  
+/_/  /_/_/  |_/_/ /_/ /_/   /____/_____/\____/ /_/ /___/\____/_/ |_/   
+                                                                       
+
+*/
 
 
 // 2-dimensional vector

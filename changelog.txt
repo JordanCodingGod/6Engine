@@ -1,3 +1,6 @@
+V0.1.0002E
+Added Image class to store and display image files better
+
 V0.1.0001E
 Added Vector2 and Vector3 classes
 Added math functions to both Vector classes
