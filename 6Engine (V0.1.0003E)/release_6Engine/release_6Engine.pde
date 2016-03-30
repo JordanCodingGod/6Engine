@@ -196,8 +196,9 @@ class Rectangle extends Shape
   {
     if(hasOutline)
     {
-      stroke(OUTLINE);
-      strokeWeight(OUTLINE_WEIGHT);
+      noStroke();
+      fill(OUTLINE);
+      rect(X - OUTLINE_WEIGHT, Y - OUTLINE_WEIGHT, X + W + OUTLINE_WEIGHT, Y + H + OUTLINE_WEIGHT);
     }
     if(!usesImage)
     {
@@ -208,7 +209,6 @@ class Rectangle extends Shape
     {
       image(IMAGE, X, Y, W, H);
     }
-    noStroke();
     if(hasText)
     {
       textAlign(CENTER);
