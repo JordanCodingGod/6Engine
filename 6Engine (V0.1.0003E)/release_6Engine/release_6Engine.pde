@@ -198,7 +198,7 @@ class Rectangle extends Shape
     {
       noStroke();
       fill(OUTLINE);
-      rect(X - OUTLINE_WEIGHT, Y - OUTLINE_WEIGHT, X + W + OUTLINE_WEIGHT, Y + H + OUTLINE_WEIGHT);
+      rect(X - OUTLINE_WEIGHT, Y - OUTLINE_WEIGHT, W + (OUTLINE_WEIGHT * 2), H + (OUTLINE_WEIGHT * 2));
     }
     if(!usesImage)
     {
