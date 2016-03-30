@@ -28,6 +28,8 @@ class Shape
   String TEXT;
   int TEXT_SIZE;
   color TEXT_COLOR;
+  boolean hasText = false;
+  boolean hasOutline = false;
   
   boolean usesImage;
   
@@ -140,6 +142,21 @@ class Shape
   {
     TEXT_COLOR = t;
   }
+  
+  void setOutline(color oc, int ow)
+  {
+    OUTLINE = oc;
+    OUTLINE_WEIGHT = ow;
+    hasOutline = true;
+  }
+  
+  void setText(String te, int ts, color tc)
+  {
+    TEXT = te;
+    TEXT_SIZE = ts;
+    TEXT_COLOR = tc;
+    hasText = true;
+  }
 }
 
 // Rectangle base class with image capabilities
@@ -175,23 +192,13 @@ class Rectangle extends Shape
     usesImage = true;
   }
   
-  void setOutline(color oc, int ow)
-  {
-    OUTLINE = oc;
-    OUTLINE_WEIGHT = ow;
-  }
-  
-  void setText(String te, int ts, color tc)
-  {
-    TEXT = te;
-    TEXT_SIZE = ts;
-    TEXT_COLOR = tc;
-  }
-  
   void draw()
   {
-    stroke(OUTLINE);
-    strokeWeight(OUTLINE_WEIGHT);
+    if(hasOutline)
+    {
+      stroke(OUTLINE);
+      strokeWeight(OUTLINE_WEIGHT);
+    }
     if(!usesImage)
     {
       fill(COLOR);
@@ -202,10 +209,13 @@ class Rectangle extends Shape
       image(IMAGE, X, Y, W, H);
     }
     noStroke();
-    textAlign(CENTER);
-    fill(TEXT_COLOR);
-    textSize(TEXT_SIZE);
-    text(TEXT, X + (W / 2), Y + (H / 2));
+    if(hasText)
+    {
+      textAlign(CENTER);
+      fill(TEXT_COLOR);
+      textSize(TEXT_SIZE);
+      text(TEXT, X + (W / 2), Y + (H / 2));
+    }
   }
 }
 
