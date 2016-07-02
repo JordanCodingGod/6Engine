@@ -1,13 +1,14 @@
 /*
-6Engine V0.1.0003E
+6Engine V0.1.0003E_AF1
 Experimental Build 1.3
-Released 3/10/2016
+Asterisk's Fixes Build 1
+Released 7/2/2016
 
 Developed independently by Jordan Doose
-Supported by Daniel Ellingston
 
 Version Changelog:
-Added outline and text overlay to Shape
+Fixed text position on rectangles. An additional variable, TY, has been added that can adjust the height of the text.
+This allows finer positioning for UI text on buttons and rectangles.
 */
 
 // CODE BEGINS BELOW
@@ -21,6 +22,7 @@ class Shape
   int Y;
   int W;
   int H;
+  int TY;
   color COLOR;
   PImage IMAGE;
   color OUTLINE;
@@ -150,11 +152,12 @@ class Shape
     hasOutline = true;
   }
   
-  void setText(String te, int ts, color tc)
+  void setText(String te, int ts, color tc, int ty)
   {
     TEXT = te;
     TEXT_SIZE = ts;
     TEXT_COLOR = tc;
+    TY = ty;
     hasText = true;
   }
 }
@@ -214,7 +217,7 @@ class Rectangle extends Shape
       textAlign(CENTER);
       fill(TEXT_COLOR);
       textSize(TEXT_SIZE);
-      text(TEXT, X + (W / 2), Y + (H / 2));
+      text(TEXT, X + (W / 2), Y +((H / 2) + TY));
     }
   }
 }
